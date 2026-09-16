@@ -1,17 +1,16 @@
 // Centralized brand data. Header/Footer/CTAs all read from here so they never drift.
-// TODO: replace placeholder contact info once the client provides real details.
 
 export const SITE = {
   name: "Praben Property Management",
   shortName: "Praben",
   url: "https://praben.com",
-  email: "contact@praben.com", // TODO: confirm real inbox
+  email: "info@praben.com",
   phone: {
-    display: "+52 322 000 0000", // TODO: real number
-    e164: "+523220000000",
+    display: "+52 322 194 1849",
+    e164: "+523221941849",
   },
   whatsapp: {
-    number: "523220000000", // TODO: real WhatsApp Business number, digits only (no +)
+    number: "523221941849",
     defaultMessage:
       "Hi, I'd like a free rental income projection for my Puerto Vallarta property.",
   },
