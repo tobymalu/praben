@@ -1,0 +1,50 @@
+---
+const bullets = [
+  {
+    title: "Immaculate Property Care",
+    body: "Regular inspections and preventive maintenance by vetted professionals.",
+  },
+  {
+    title: "Dynamic Market Positioning",
+    body: "Optimized pricing and visibility across top booking platforms to ensure high occupancy year-round.",
+  },
+  {
+    title: "Luxury Guest Concierge",
+    body: "Building guest loyalty that translates into continuous 5-star reviews.",
+  },
+  {
+    title: "Transparent Contract",
+    body: "No hidden fees. No convoluted commission tiers. Just straightforward, profitable partnership.",
+  },
+];
+---
+
+<section id="authority" class="bg-secondary px-4 py-16 sm:px-6 sm:py-24">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="text-center text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+      Engineered for 5-Star Experiences and Maximum ROI.
+    </h2>
+
+    <ul class="mt-12 grid gap-x-10 gap-y-8 sm:grid-cols-2">
+      {bullets.map((bullet) => (
+        <li class="flex gap-4">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 20 20"
+            class="mt-1 h-5 w-5 shrink-0 fill-accent"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 1 1 1.4-1.4l3.8 3.79 6.8-6.79a1 1 0 0 1 1.4 0Z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
+          <div>
+            <h3 class="font-medium text-white">{bullet.title}</h3>
+            <p class="mt-1 font-light text-white/70">{bullet.body}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
