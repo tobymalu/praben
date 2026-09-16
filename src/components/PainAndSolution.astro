@@ -1,0 +1,71 @@
+---
+const painPoints = [
+  {
+    title: "Managing from abroad is a full-time job",
+    body: "Guest messages at 3am, a broken A/C unit, a cleaner who no-shows — distance turns small issues into lost bookings and lost revenue.",
+  },
+  {
+    title: "Generic listings underperform",
+    body: "Static photos and a flat price calendar leave money on the table while dynamically-priced, professionally marketed properties book out months ahead.",
+  },
+  {
+    title: "Trust is hard to verify remotely",
+    body: "Without eyes on the ground, owners have no real way to confirm their property is maintained, cleaned, and represented the way they'd expect.",
+  },
+];
+
+const solutions = [
+  {
+    title: "Dynamic revenue marketing",
+    body: "Data-driven pricing and professional listing management across every major platform, tuned weekly to Puerto Vallarta demand.",
+  },
+  {
+    title: "Impeccable maintenance",
+    body: "A local team on call for inspections, repairs, and housekeeping — so every guest arrives to a property that looks brand new.",
+  },
+  {
+    title: "Luxury guest concierge",
+    body: "White-glove check-ins, curated recommendations, and 24/7 guest support that protect your reviews and your reputation.",
+  },
+];
+---
+
+<section id="pain-and-solution" class="bg-muted px-4 py-16 sm:px-6 sm:py-24">
+  <div class="mx-auto max-w-6xl">
+    <div class="grid gap-12 md:grid-cols-2">
+      <div>
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
+          The Problem
+        </p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-foreground">
+          Remote ownership shouldn't mean constant worry
+        </h2>
+        <ul class="mt-8 space-y-6">
+          {painPoints.map((point) => (
+            <li class="border-l-2 border-secondary/30 pl-4">
+              <h3 class="font-medium text-foreground">{point.title}</h3>
+              <p class="mt-1 font-light text-muted-foreground">{point.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-primary">
+          The Praben Solution
+        </p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-foreground">
+          A team on the ground, accountable to your returns
+        </h2>
+        <ul class="mt-8 space-y-6">
+          {solutions.map((point) => (
+            <li class="border-l-2 border-primary pl-4">
+              <h3 class="font-medium text-foreground">{point.title}</h3>
+              <p class="mt-1 font-light text-muted-foreground">{point.body}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

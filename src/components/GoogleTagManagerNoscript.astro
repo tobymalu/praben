@@ -1,0 +1,13 @@
+---
+const FALLBACK_GTM_ID = "GTM-XXXXXXX";
+const gtmId = import.meta.env.PUBLIC_GTM_ID || FALLBACK_GTM_ID;
+---
+
+<noscript>
+  <iframe
+    src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}
+    height="0"
+    width="0"
+    style="display:none;visibility:hidden"
+  ></iframe>
+</noscript>

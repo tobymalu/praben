@@ -1,0 +1,16 @@
+---
+const zones = ["Zona Romántica", "Marina Vallarta", "Nuevo Vallarta"];
+---
+
+<section id="social-proof" class="border-y border-brand-gray-50 bg-primary px-4 py-8 sm:px-6">
+  <div class="mx-auto flex max-w-6xl flex-col items-center gap-4 text-center sm:flex-row sm:justify-between sm:text-left">
+    <p class="text-sm font-medium uppercase tracking-[0.2em] text-white/70">
+      Operating in Puerto Vallarta's most exclusive zones
+    </p>
+    <ul class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 sm:justify-end">
+      {zones.map((zone) => (
+        <li class="text-lg font-medium text-white">{zone}</li>
+      ))}
+    </ul>
+  </div>
+</section>

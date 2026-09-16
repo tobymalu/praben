@@ -1,0 +1,28 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Brand palette (literal) — change only here */
+  --color-brand-blue: #004899;
+  --color-brand-legal: #170bb5;
+  --color-brand-yellow: #ffe600;
+  --color-brand-black: #0a0a0a;
+  --color-brand-gray-50: #f5f7fa;
+  --color-brand-gray-400: #64748b;
+
+  /* Semantic roles — components use these, never the literals above */
+  --color-primary: var(--color-brand-blue);
+  --color-secondary: var(--color-brand-legal);
+  --color-accent: var(--color-brand-yellow);
+  --color-background: #ffffff;
+  --color-foreground: var(--color-brand-black);
+  --color-muted: var(--color-brand-gray-50);
+  --color-muted-foreground: var(--color-brand-gray-400);
+
+  --font-sans: "Prompt", ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}

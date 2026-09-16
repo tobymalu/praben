@@ -1,0 +1,23 @@
+---
+import { SITE, whatsappUrl } from "../lib/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-foreground px-4 py-10 text-white sm:px-6">
+  <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+    <div>
+      <p class="text-lg font-semibold">{SITE.name}</p>
+      <p class="mt-1 text-sm font-light text-white/70">
+        Property management for Puerto Vallarta investors.
+      </p>
+    </div>
+    <div class="flex flex-col items-center gap-1 text-sm font-light text-white/70 sm:items-end">
+      <a href={`mailto:${SITE.email}`} class="hover:text-accent">{SITE.email}</a>
+      <a href={whatsappUrl()} class="hover:text-accent" target="_blank" rel="noopener">
+        {SITE.phone.display}
+      </a>
+      <p class="mt-2">&copy; {year} {SITE.name}. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

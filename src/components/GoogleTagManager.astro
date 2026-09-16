@@ -1,0 +1,39 @@
+---
+// TODO: replace the placeholder ID below (and set PUBLIC_GTM_ID in .env) once
+// the real GTM container exists. Both must match — the hardcoded fallback
+// exists so a deploy that forgets to set the env var doesn't lose GTM silently.
+const FALLBACK_GTM_ID = "GTM-XXXXXXX";
+const gtmId = import.meta.env.PUBLIC_GTM_ID || FALLBACK_GTM_ID;
+---
+
+<script define:vars={{ gtmId }} is:inline>
+  // Consent Mode v2 — default to denied, or restore a prior choice, BEFORE
+  // the GTM container loads.
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  let storedConsent = null;
+  try {
+    storedConsent = localStorage.getItem("cookie_consent");
+  } catch (e) {}
+
+  gtag("consent", "default", {
+    ad_storage: storedConsent === "granted" ? "granted" : "denied",
+    analytics_storage: storedConsent === "granted" ? "granted" : "denied",
+    ad_user_data: storedConsent === "granted" ? "granted" : "denied",
+    ad_personalization: storedConsent === "granted" ? "granted" : "denied",
+  });
+
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", gtmId);
+</script>
