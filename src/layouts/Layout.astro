@@ -2,6 +2,8 @@
 import GoogleTagManager from "../components/GoogleTagManager.astro";
 import GoogleTagManagerNoscript from "../components/GoogleTagManagerNoscript.astro";
 import CookieBanner from "../components/CookieBanner.astro";
+import HeaderNav from "../components/HeaderNav.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SITE } from "../lib/site";
 
@@ -61,9 +63,11 @@ const ogImage = new URL("/praben-logotipo-03.png", SITE.url).toString();
     >
       Skip to content
     </a>
+    <HeaderNav />
     <div id="contenido">
       <slot />
     </div>
+    <Footer />
     <CookieBanner />
   </body>
 </html>

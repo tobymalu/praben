@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
 import { SITE, whatsappUrl } from "../lib/site";
 
 // Populate this once there's guide/resource content to point new leads to.
@@ -14,7 +12,6 @@ const relatedArticles: { title: string; excerpt: string; href: string }[] = [];
   description="Your rental projection request has been received."
   noindex={true}
 >
-  <Header />
   <main>
     <section class="bg-primary px-4 py-20 text-center sm:px-6 sm:py-28">
       <div class="mx-auto max-w-2xl">
@@ -84,5 +81,4 @@ const relatedArticles: { title: string; excerpt: string; href: string }[] = [];
       </div>
     </section>
   </main>
-  <Footer />
 </Layout>

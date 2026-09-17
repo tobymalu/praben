@@ -1,0 +1,39 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SITE } from "../../lib/site";
+
+// No posts yet — this becomes a real content collection once articles exist.
+---
+
+<Layout
+  title="Insights | Praben Property Management"
+  description="Investor insights on Puerto Vallarta short-term rentals, property management, and maximizing rental ROI."
+>
+  <main>
+    <section class="bg-primary px-4 py-16 text-center sm:px-6 sm:py-24">
+      <div class="mx-auto max-w-2xl">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-accent">
+          Insights
+        </p>
+        <h1 class="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          Investor Insights for Puerto Vallarta.
+        </h1>
+        <p class="mt-4 font-light text-white/85">
+          Market data, ROI guides, and ownership tips for US and Canadian
+          investors — coming soon.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 py-20 sm:px-6">
+      <p class="mx-auto max-w-xl text-center font-light text-muted-foreground">
+        We're building our library of investor resources. In the meantime,
+        reach out directly at{" "}
+        <a href={`mailto:${SITE.email}`} class="font-medium text-primary underline">
+          {SITE.email}
+        </a>
+        {" "}with any questions.
+      </p>
+    </section>
+  </main>
+</Layout>

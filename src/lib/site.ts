@@ -27,7 +27,8 @@ export function whatsappUrl(message: string = SITE.whatsapp.defaultMessage): str
 }
 
 export const NAV_LINKS = [
-  { label: "Our Approach", href: "#pain-and-solution" },
-  { label: "Coverage Areas", href: "#social-proof" },
-  { label: "Get Your Projection", href: "#lead-form" },
+  { label: "Services", href: "/services" },
+  { label: "About Us", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/contact" },
 ] as const;
