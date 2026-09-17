@@ -1,8 +1,7 @@
 ---
-// TODO: replace the placeholder ID below (and set PUBLIC_GTM_ID in .env) once
-// the real GTM container exists. Both must match — the hardcoded fallback
-// exists so a deploy that forgets to set the env var doesn't lose GTM silently.
-const FALLBACK_GTM_ID = "GTM-XXXXXXX";
+// Set PUBLIC_GTM_ID in .env for prod; this hardcoded fallback matches it so a
+// deploy that forgets the env var doesn't lose GTM silently.
+const FALLBACK_GTM_ID = "GTM-MXQNNCX8";
 const gtmId = import.meta.env.PUBLIC_GTM_ID || FALLBACK_GTM_ID;
 ---
 
