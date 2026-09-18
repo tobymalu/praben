@@ -17,7 +17,23 @@ const year = new Date().getFullYear();
       <a href={whatsappUrl()} class="hover:text-accent" target="_blank" rel="noopener">
         {SITE.phone.display}
       </a>
-      <p class="mt-2">&copy; {year} {SITE.name}. All rights reserved.</p>
     </div>
+  </div>
+
+  <div class="mx-auto mt-8 max-w-6xl border-t border-white/10 pt-6 text-center">
+    <p class="text-xs font-medium uppercase tracking-[0.2em] text-white/50">
+      Our Commercial Allies
+    </p>
+    <a
+      href="https://www.vallartamagico.com"
+      target="_blank"
+      rel="noopener"
+      class="mt-2 inline-block text-sm font-light text-white/70 hover:text-accent"
+    >
+      Vallarta Mágico
+    </a>
+    <p class="mt-4 text-sm font-light text-white/70">
+      &copy; {year} {SITE.name}. All rights reserved.
+    </p>
   </div>
 </footer>
