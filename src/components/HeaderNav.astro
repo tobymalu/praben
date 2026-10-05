@@ -1,5 +1,11 @@
 ---
 import { SITE, NAV_LINKS } from "../lib/site";
+
+interface Props {
+  langSwitch?: { label: string; href: string };
+}
+
+const { langSwitch } = Astro.props;
 ---
 
 <header class="sticky top-0 z-40 border-b border-brand-gray-50 bg-background/95 backdrop-blur">
@@ -23,7 +29,15 @@ import { SITE, NAV_LINKS } from "../lib/site";
       </ul>
     </nav>
 
-    <div class="hidden shrink-0 md:block">
+    <div class="hidden shrink-0 items-center gap-4 md:flex">
+      {langSwitch && (
+        <a
+          href={langSwitch.href}
+          class="text-sm font-medium text-muted-foreground transition hover:text-primary"
+        >
+          {langSwitch.label}
+        </a>
+      )}
       <a
         href="/free-projection"
         class="rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
@@ -59,6 +73,16 @@ import { SITE, NAV_LINKS } from "../lib/site";
           </a>
         </li>
       ))}
+      {langSwitch && (
+        <li>
+          <a
+            href={langSwitch.href}
+            class="block rounded-lg px-3 py-2.5 text-base font-medium text-muted-foreground transition hover:bg-muted"
+          >
+            {langSwitch.label}
+          </a>
+        </li>
+      )}
       <li class="mt-2">
         <a
           href="/free-projection"

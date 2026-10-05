@@ -11,15 +11,29 @@ interface Props {
   title: string;
   description: string;
   noindex?: boolean;
+  lang?: string;
+  langSwitch?: { label: string; href: string };
+  alternateLinks?: { hreflang: string; href: string }[];
 }
 
-const { title, description, noindex = false } = Astro.props;
+const {
+  title,
+  description,
+  noindex = false,
+  lang = "en",
+  langSwitch,
+  alternateLinks,
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).toString();
 const ogImage = new URL("/praben-logotipo-03.png", SITE.url).toString();
+const hreflangLinks = alternateLinks ?? [
+  { hreflang: "en", href: canonical },
+  { hreflang: "x-default", href: canonical },
+];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -30,8 +44,9 @@ const ogImage = new URL("/praben-logotipo-03.png", SITE.url).toString();
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-    <link rel="alternate" hreflang="en" href={canonical} />
-    <link rel="alternate" hreflang="x-default" href={canonical} />
+    {hreflangLinks.map((link) => (
+      <link rel="alternate" hreflang={link.hreflang} href={link.href} />
+    ))}
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -63,7 +78,7 @@ const ogImage = new URL("/praben-logotipo-03.png", SITE.url).toString();
     >
       Skip to content
     </a>
-    <HeaderNav />
+    <HeaderNav langSwitch={langSwitch} />
     <div id="contenido">
       <slot />
     </div>
