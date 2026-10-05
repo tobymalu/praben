@@ -1,8 +1,11 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../../../layouts/Layout.astro";
 import { SITE } from "../../../lib/site";
 
-// No posts yet — this becomes a real content collection once articles exist.
+const posts = (await getCollection("blogEs")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+);
 ---
 
 <Layout
@@ -21,20 +24,41 @@ import { SITE } from "../../../lib/site";
         </h1>
         <p class="mt-4 font-light text-white/85">
           Datos de mercado, guías de retorno de inversión y consejos de
-          propiedad para inversionistas de EE. UU. y Canadá — próximamente.
+          propiedad para inversionistas de EE. UU. y Canadá.
         </p>
       </div>
     </section>
 
-    <section class="px-4 py-20 sm:px-6">
-      <p class="mx-auto max-w-xl text-center font-light text-muted-foreground">
-        Estamos construyendo nuestra biblioteca de recursos para
-        inversionistas. Mientras tanto, contáctanos directamente en{" "}
-        <a href={`mailto:${SITE.email}`} class="font-medium text-primary underline">
-          {SITE.email}
-        </a>
-        {" "}si tienes alguna pregunta.
-      </p>
+    <section class="px-4 py-16 sm:px-6 sm:py-20">
+      {posts.length > 0 ? (
+        <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
+          {posts.map((post) => (
+            <a
+              href={`/es/blog/${post.id}`}
+              class="block overflow-hidden rounded-2xl bg-muted shadow-sm transition hover:shadow-md"
+            >
+              <img
+                src={post.data.heroImage}
+                alt={post.data.heroImageAlt}
+                class="h-48 w-full object-cover"
+              />
+              <div class="p-6">
+                <h2 class="font-semibold text-foreground">{post.data.title}</h2>
+                <p class="mt-2 font-light text-muted-foreground">{post.data.excerpt}</p>
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <p class="mx-auto max-w-xl text-center font-light text-muted-foreground">
+          Estamos construyendo nuestra biblioteca de recursos para
+          inversionistas. Mientras tanto, contáctanos directamente en{" "}
+          <a href={`mailto:${SITE.email}`} class="font-medium text-primary underline">
+            {SITE.email}
+          </a>
+          {" "}si tienes alguna pregunta.
+        </p>
+      )}
     </section>
   </main>
 </Layout>
