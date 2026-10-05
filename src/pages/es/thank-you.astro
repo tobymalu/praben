@@ -1,6 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import { SITE, whatsappUrl } from "../lib/site";
+import Layout from "../../layouts/Layout.astro";
+import { SITE, whatsappUrl } from "../../lib/site";
 
 // Populate this once there's guide/resource content to point new leads to.
 // Cards render automatically the moment this array is non-empty.
@@ -8,8 +8,9 @@ const relatedArticles: { title: string; excerpt: string; href: string }[] = [];
 ---
 
 <Layout
-  title="Thank You | Praben Property Management"
-  description="Your rental projection request has been received."
+  title="Gracias | Praben Property Management"
+  description="Tu solicitud de proyección de renta ha sido recibida."
+  lang="es"
   noindex={true}
 >
   <main>
@@ -27,20 +28,20 @@ const relatedArticles: { title: string; excerpt: string; href: string }[] = [];
           ></path>
         </svg>
         <h1 class="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Thank You. Your Request Has Been Received.
+          Gracias. Hemos Recibido tu Solicitud.
         </h1>
         <p class="mt-4 font-light text-white/85">
-          A member of our team will follow up within one business day with
-          your custom rental income projection. In the meantime, feel free to
-          reach us directly.
+          Un miembro de nuestro equipo te contactará en menos de un día hábil
+          con tu proyección de ingresos personalizada. Mientras tanto, no
+          dudes en contactarnos directamente.
         </p>
         <a
-          href={whatsappUrl(undefined, "en")}
+          href={whatsappUrl(undefined, "es")}
           target="_blank"
           rel="noopener"
           class="mt-8 inline-block rounded-lg bg-accent px-8 py-3.5 text-base font-medium text-foreground transition hover:opacity-90"
         >
-          Message Us on WhatsApp
+          Escríbenos por WhatsApp
         </a>
       </div>
     </section>
@@ -48,7 +49,7 @@ const relatedArticles: { title: string; excerpt: string; href: string }[] = [];
     <section class="bg-muted px-4 py-16 sm:px-6 sm:py-20">
       <div class="mx-auto max-w-6xl">
         <h2 class="text-center text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-          While You Wait
+          Mientras Tanto
         </h2>
 
         {relatedArticles.length > 0 ? (
@@ -65,13 +66,13 @@ const relatedArticles: { title: string; excerpt: string; href: string }[] = [];
           </div>
         ) : (
           <p class="mx-auto mt-6 max-w-xl text-center font-light text-muted-foreground">
-            We're putting together our library of investor resources. In the
-            meantime, revisit
+            Estamos preparando nuestra biblioteca de recursos para
+            inversionistas. Mientras tanto, revisa
             {" "}
-            <a href="/#pain-and-solution" class="font-medium text-primary underline">
-              how Praben protects your investment
+            <a href="/es#pain-and-solution" class="font-medium text-primary underline">
+              cómo Praben protege tu inversión
             </a>
-            {" "}or email us directly at{" "}
+            {" "}o escríbenos directamente a{" "}
             <a href={`mailto:${SITE.email}`} class="font-medium text-primary underline">
               {SITE.email}
             </a>

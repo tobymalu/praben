@@ -6,30 +6,21 @@ import HeaderNav from "../components/HeaderNav.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SITE } from "../lib/site";
+import { toEnglishPath, toSpanishPath, type Lang } from "../lib/i18n";
 
 interface Props {
   title: string;
   description: string;
   noindex?: boolean;
-  lang?: string;
-  langSwitch?: { label: string; href: string };
-  alternateLinks?: { hreflang: string; href: string }[];
+  lang?: Lang;
 }
 
-const {
-  title,
-  description,
-  noindex = false,
-  lang = "en",
-  langSwitch,
-  alternateLinks,
-} = Astro.props;
+const { title, description, noindex = false, lang = "en" } = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).toString();
+const enUrl = new URL(toEnglishPath(Astro.url.pathname), SITE.url).toString();
+const esUrl = new URL(toSpanishPath(Astro.url.pathname), SITE.url).toString();
 const ogImage = new URL("/praben-logotipo-03.png", SITE.url).toString();
-const hreflangLinks = alternateLinks ?? [
-  { hreflang: "en", href: canonical },
-  { hreflang: "x-default", href: canonical },
-];
+const skipLinkLabel = lang === "es" ? "Saltar al contenido" : "Skip to content";
 ---
 
 <!doctype html>
@@ -44,9 +35,9 @@ const hreflangLinks = alternateLinks ?? [
     <link rel="canonical" href={canonical} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-    {hreflangLinks.map((link) => (
-      <link rel="alternate" hreflang={link.hreflang} href={link.href} />
-    ))}
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="x-default" href={enUrl} />
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -74,15 +65,15 @@ const hreflangLinks = alternateLinks ?? [
     <GoogleTagManagerNoscript />
     <a
       href="#contenido"
-      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-foreground"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-lg focus:bg-accent focus:px-4 focus:py-2 focus:text-foreground"
     >
-      Skip to content
+      {skipLinkLabel}
     </a>
-    <HeaderNav langSwitch={langSwitch} />
+    <HeaderNav lang={lang} />
     <div id="contenido">
       <slot />
     </div>
-    <Footer />
-    <CookieBanner />
+    <Footer lang={lang} />
+    <CookieBanner lang={lang} />
   </body>
 </html>

@@ -1,5 +1,51 @@
 ---
 import { SITE } from "../lib/site";
+import type { Lang } from "../lib/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props;
+
+const copy = {
+  en: {
+    eyebrow: "Puerto Vallarta Property Management",
+    headline: "Maximize Your Vallarta Investment. Zero Headaches.",
+    subhead:
+      "Praben handles marketing, maintenance, and guest concierge for your Puerto Vallarta property — so you collect the returns without managing a thing from abroad.",
+    formTitle: "Get Your Free Rental Projection",
+    formSubtitle: "No commitment. A response within one business day.",
+    nameLabel: "Full name",
+    emailLabel: "Email",
+    whatsappLabel: "WhatsApp number",
+    airbnbLabel: "Airbnb listing link",
+    optional: "(optional)",
+    submit: "Get My Free Projection",
+    errorStatus: "We couldn't submit the form — opening WhatsApp instead.",
+    whatsappIntro: "Hi, I'd like a free rental income projection.",
+    whatsappFields: { name: "Name", email: "Email", whatsapp: "WhatsApp", airbnb: "Airbnb" },
+    thankYouPath: "/thank-you",
+  },
+  es: {
+    eyebrow: "Administración de Propiedades en Puerto Vallarta",
+    headline: "Maximiza tu Inversión en Vallarta. Cero Complicaciones.",
+    subhead:
+      "Praben se encarga del marketing, mantenimiento y concierge de huéspedes de tu propiedad en Puerto Vallarta — para que recibas los ingresos sin administrar nada a distancia.",
+    formTitle: "Obtén tu Proyección de Renta Gratuita",
+    formSubtitle: "Sin compromiso. Respuesta en menos de un día hábil.",
+    nameLabel: "Nombre completo",
+    emailLabel: "Correo electrónico",
+    whatsappLabel: "Número de WhatsApp",
+    airbnbLabel: "Enlace de tu anuncio en Airbnb",
+    optional: "(opcional)",
+    submit: "Obtener mi Proyección Gratuita",
+    errorStatus: "No pudimos enviar el formulario — abriendo WhatsApp en su lugar.",
+    whatsappIntro: "Hola, me gustaría una proyección gratuita de ingresos por renta.",
+    whatsappFields: { name: "Nombre", email: "Correo", whatsapp: "WhatsApp", airbnb: "Airbnb" },
+    thankYouPath: "/es/thank-you",
+  },
+}[lang];
 ---
 
 <section id="lead-form" class="relative overflow-hidden bg-primary">
@@ -20,29 +66,25 @@ import { SITE } from "../lib/site";
     <!-- Left: headline -->
     <div class="relative z-10 text-white">
       <p class="mb-4 text-sm font-medium uppercase tracking-[0.2em] text-accent">
-        Puerto Vallarta Property Management
+        {copy.eyebrow}
       </p>
       <h1 class="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-        Maximize Your Vallarta Investment. Zero Headaches.
+        {copy.headline}
       </h1>
       <p class="mt-6 max-w-md text-lg font-extralight text-white/85">
-        Praben handles marketing, maintenance, and guest concierge for your
-        Puerto Vallarta property — so you collect the returns without
-        managing a thing from abroad.
+        {copy.subhead}
       </p>
     </div>
 
     <!-- Right: floating lead form -->
     <div class="relative z-10 rounded-2xl bg-white p-6 shadow-2xl sm:p-8">
-      <h2 class="text-xl font-semibold text-foreground">Get Your Free Rental Projection</h2>
-      <p class="mt-1 text-sm font-light text-muted-foreground">
-        No commitment. A response within one business day.
-      </p>
+      <h2 class="text-xl font-semibold text-foreground">{copy.formTitle}</h2>
+      <p class="mt-1 text-sm font-light text-muted-foreground">{copy.formSubtitle}</p>
 
       <form id="lead-capture-form" class="mt-6 space-y-4">
         <div>
           <label for="lead-name" class="mb-1 block text-sm font-medium text-foreground">
-            Full name
+            {copy.nameLabel}
           </label>
           <input
             id="lead-name"
@@ -56,7 +98,7 @@ import { SITE } from "../lib/site";
 
         <div>
           <label for="lead-email" class="mb-1 block text-sm font-medium text-foreground">
-            Email
+            {copy.emailLabel}
           </label>
           <input
             id="lead-email"
@@ -70,7 +112,7 @@ import { SITE } from "../lib/site";
 
         <div>
           <label for="lead-whatsapp" class="mb-1 block text-sm font-medium text-foreground">
-            WhatsApp number
+            {copy.whatsappLabel}
           </label>
           <input
             id="lead-whatsapp"
@@ -85,7 +127,7 @@ import { SITE } from "../lib/site";
 
         <div>
           <label for="lead-airbnb" class="mb-1 block text-sm font-medium text-foreground">
-            Airbnb listing link <span class="font-extralight text-muted-foreground">(optional)</span>
+            {copy.airbnbLabel} <span class="font-extralight text-muted-foreground">{copy.optional}</span>
           </label>
           <input
             id="lead-airbnb"
@@ -100,7 +142,7 @@ import { SITE } from "../lib/site";
           type="submit"
           class="w-full rounded-lg bg-accent px-6 py-3.5 text-base font-medium text-foreground transition hover:opacity-90"
         >
-          Get My Free Projection
+          {copy.submit}
         </button>
 
         <p
@@ -115,7 +157,16 @@ import { SITE } from "../lib/site";
   </div>
 </section>
 
-<script define:vars={{ whatsappNumber: SITE.whatsapp.number }}>
+<script
+  is:inline
+  define:vars={{
+    whatsappNumber: SITE.whatsapp.number,
+    thankYouPath: copy.thankYouPath,
+    errorStatus: copy.errorStatus,
+    whatsappIntro: copy.whatsappIntro,
+    whatsappFields: copy.whatsappFields,
+  }}
+>
   (function () {
     var form = document.getElementById("lead-capture-form");
     var status = document.getElementById("lead-form-status");
@@ -139,21 +190,21 @@ import { SITE } from "../lib/site";
           headers: { Accept: "application/json" },
         });
         if (!response.ok) throw new Error("Formspree responded with an error");
-        window.location.href = "/thank-you";
+        window.location.href = thankYouPath;
       } catch (err) {
         // Never lose the lead: hand it off to WhatsApp if the form post fails.
         var message =
-          "Hi, I'd like a free rental income projection.\n" +
-          "Name: " + data.get("name") + "\n" +
-          "Email: " + data.get("email") + "\n" +
-          "WhatsApp: " + data.get("whatsapp") +
-          (data.get("airbnb") ? "\nAirbnb: " + data.get("airbnb") : "");
+          whatsappIntro + "\n" +
+          whatsappFields.name + ": " + data.get("name") + "\n" +
+          whatsappFields.email + ": " + data.get("email") + "\n" +
+          whatsappFields.whatsapp + ": " + data.get("whatsapp") +
+          (data.get("airbnb") ? "\n" + whatsappFields.airbnb + ": " + data.get("airbnb") : "");
 
         window.open(
           "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message),
           "_blank"
         );
-        status.textContent = "We couldn't submit the form — opening WhatsApp instead.";
+        status.textContent = errorStatus;
         status.classList.remove("hidden");
       }
     });

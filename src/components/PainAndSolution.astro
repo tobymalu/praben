@@ -1,47 +1,83 @@
 ---
-const columns = [
-  {
-    problem: "Fragmented Services.",
-    solution: "All-in-One Management.",
-    body: "We handle aggressive marketing, guest screening, and high-end maintenance under one roof. No pointing fingers.",
+import type { Lang } from "../lib/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props;
+
+const copy = {
+  en: {
+    heading: "The Standard in Puerto Vallarta is Broken. We Fixed It.",
+    intro:
+      "Managing a luxury condo from the US or Canada shouldn't feel like a second job. Most local agencies trap you in complex contracts, separate maintenance from rental hosting, or treat your property like just another number in a massive catalog. Praben is different. We are an exclusive B2B partner dedicated to protecting your asset and scaling your revenue.",
+    problemLabel: "The Problem",
+    solutionLabel: "The Praben Solution",
+    columns: [
+      {
+        problem: "Fragmented Services.",
+        solution: "All-in-One Management.",
+        body: "We handle aggressive marketing, guest screening, and high-end maintenance under one roof. No pointing fingers.",
+      },
+      {
+        problem: "Poor Communication.",
+        solution: "Dedicated Direct Lines.",
+        body: "Forget waiting 48 hours for an email reply. Our operational structure provides dedicated, direct business channels so you always know what is happening with your property.",
+      },
+      {
+        problem: "Financial Blind Spots.",
+        solution: "Automated Transparency.",
+        body: "Access clear, automated performance reports and occupancy logs without having to ask for them.",
+      },
+    ],
   },
-  {
-    problem: "Poor Communication.",
-    solution: "Dedicated Direct Lines.",
-    body: "Forget waiting 48 hours for an email reply. Our operational structure provides dedicated, direct business channels so you always know what is happening with your property.",
+  es: {
+    heading: "El Estándar en Puerto Vallarta Está Roto. Nosotros lo Arreglamos.",
+    intro:
+      "Administrar un condominio de lujo desde EE. UU. o Canadá no debería sentirse como un segundo trabajo. La mayoría de las agencias locales te atrapan en contratos complejos, separan el mantenimiento de la renta de huéspedes, o tratan tu propiedad como un número más en un catálogo masivo. Praben es diferente. Somos un socio B2B exclusivo dedicado a proteger tu activo y escalar tus ingresos.",
+    problemLabel: "El Problema",
+    solutionLabel: "La Solución Praben",
+    columns: [
+      {
+        problem: "Servicios Fragmentados.",
+        solution: "Administración Todo en Uno.",
+        body: "Nos encargamos del marketing agresivo, la selección de huéspedes y el mantenimiento de alto nivel bajo un mismo techo. Sin señalamientos entre proveedores.",
+      },
+      {
+        problem: "Mala Comunicación.",
+        solution: "Líneas Directas Dedicadas.",
+        body: "Olvídate de esperar 48 horas por una respuesta de correo. Nuestra estructura operativa te da canales de comunicación directos y dedicados, para que siempre sepas qué pasa con tu propiedad.",
+      },
+      {
+        problem: "Puntos Ciegos Financieros.",
+        solution: "Transparencia Automatizada.",
+        body: "Accede a reportes de desempeño y registros de ocupación claros y automatizados, sin tener que pedirlos.",
+      },
+    ],
   },
-  {
-    problem: "Financial Blind Spots.",
-    solution: "Automated Transparency.",
-    body: "Access clear, automated performance reports and occupancy logs without having to ask for them.",
-  },
-];
+}[lang];
 ---
 
 <section id="pain-and-solution" class="bg-muted px-4 py-16 sm:px-6 sm:py-24">
   <div class="mx-auto max-w-6xl">
     <div class="mx-auto max-w-3xl text-center">
       <h2 class="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-        The Standard in Puerto Vallarta is Broken. We Fixed It.
+        {copy.heading}
       </h2>
       <p class="mt-6 font-light text-muted-foreground">
-        Managing a luxury condo from the US or Canada shouldn't feel like a
-        second job. Most local agencies trap you in complex contracts,
-        separate maintenance from rental hosting, or treat your property like
-        just another number in a massive catalog. Praben is different. We are
-        an exclusive B2B partner dedicated to protecting your asset and
-        scaling your revenue.
+        {copy.intro}
       </p>
     </div>
 
     <div class="mt-14 grid gap-8 md:grid-cols-3">
-      {columns.map((col) => (
+      {copy.columns.map((col) => (
         <div class="rounded-2xl bg-white p-8 shadow-sm">
           <p class="text-sm font-medium text-muted-foreground line-through decoration-muted-foreground/50">
-            The Problem: {col.problem}
+            {copy.problemLabel}: {col.problem}
           </p>
           <h3 class="mt-3 text-lg font-semibold text-primary">
-            The Praben Solution: {col.solution}
+            {copy.solutionLabel}: {col.solution}
           </h3>
           <p class="mt-3 font-light text-muted-foreground">{col.body}</p>
         </div>

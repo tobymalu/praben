@@ -1,22 +1,28 @@
 ---
-import { SITE, NAV_LINKS } from "../lib/site";
+import { SITE, getNavLinks } from "../lib/site";
+import { toEnglishPath, toSpanishPath, type Lang } from "../lib/i18n";
 
 interface Props {
-  langSwitch?: { label: string; href: string };
+  lang?: Lang;
 }
 
-const { langSwitch } = Astro.props;
+const { lang = "en" } = Astro.props;
+const navLinks = getNavLinks(lang);
+const toggleHref = lang === "es" ? toEnglishPath(Astro.url.pathname) : toSpanishPath(Astro.url.pathname);
+const toggleLabel = lang === "es" ? "English" : "Español";
+const ctaLabel = lang === "es" ? "Proyección Gratuita" : "Free Projection";
+const ctaHref = lang === "es" ? "/es/free-projection" : "/free-projection";
 ---
 
 <header class="sticky top-0 z-40 border-b border-brand-gray-50 bg-background/95 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-    <a href="/" class="shrink-0">
+    <a href={lang === "es" ? "/es" : "/"} class="shrink-0">
       <img src="/praben-logotipo-03.png" alt={SITE.name} class="h-8 w-auto sm:h-9" />
     </a>
 
     <nav aria-label="Primary" class="hidden md:block">
       <ul class="flex items-center gap-8">
-        {NAV_LINKS.map((link) => (
+        {navLinks.map((link) => (
           <li>
             <a
               href={link.href}
@@ -30,19 +36,17 @@ const { langSwitch } = Astro.props;
     </nav>
 
     <div class="hidden shrink-0 items-center gap-4 md:flex">
-      {langSwitch && (
-        <a
-          href={langSwitch.href}
-          class="text-sm font-medium text-muted-foreground transition hover:text-primary"
-        >
-          {langSwitch.label}
-        </a>
-      )}
       <a
-        href="/free-projection"
+        href={toggleHref}
+        class="text-sm font-medium text-muted-foreground transition hover:text-primary"
+      >
+        {toggleLabel}
+      </a>
+      <a
+        href={ctaHref}
         class="rounded-lg bg-primary px-5 py-2.5 text-sm font-medium text-white transition hover:opacity-90"
       >
-        Free Projection
+        {ctaLabel}
       </a>
     </div>
 
@@ -63,7 +67,7 @@ const { langSwitch } = Astro.props;
 
   <nav id="mobile-menu" aria-label="Mobile" class="hidden border-t border-brand-gray-50 bg-background md:hidden">
     <ul class="flex flex-col gap-1 px-4 py-4 sm:px-6">
-      {NAV_LINKS.map((link) => (
+      {navLinks.map((link) => (
         <li>
           <a
             href={link.href}
@@ -73,22 +77,20 @@ const { langSwitch } = Astro.props;
           </a>
         </li>
       ))}
-      {langSwitch && (
-        <li>
-          <a
-            href={langSwitch.href}
-            class="block rounded-lg px-3 py-2.5 text-base font-medium text-muted-foreground transition hover:bg-muted"
-          >
-            {langSwitch.label}
-          </a>
-        </li>
-      )}
+      <li>
+        <a
+          href={toggleHref}
+          class="block rounded-lg px-3 py-2.5 text-base font-medium text-muted-foreground transition hover:bg-muted"
+        >
+          {toggleLabel}
+        </a>
+      </li>
       <li class="mt-2">
         <a
-          href="/free-projection"
+          href={ctaHref}
           class="block rounded-lg bg-primary px-3 py-2.5 text-center text-base font-medium text-white transition hover:opacity-90"
         >
-          Free Projection
+          {ctaLabel}
         </a>
       </li>
     </ul>

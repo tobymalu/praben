@@ -1,20 +1,43 @@
 ---
+import type { Lang } from "../lib/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props;
+
+const copy = {
+  en: {
+    heading: "Ready to See Your Property's True Earning Potential?",
+    subtitle:
+      "Let's run the numbers. Request a comprehensive, data-driven rental projection for your Puerto Vallarta condo.",
+    button: "Request My Free Projection",
+    href: "/free-projection#lead-form",
+  },
+  es: {
+    heading: "¿Listo para Ver el Verdadero Potencial de Ingresos de tu Propiedad?",
+    subtitle:
+      "Hagamos los números. Solicita una proyección de renta completa y basada en datos para tu condominio en Puerto Vallarta.",
+    button: "Solicitar mi Proyección Gratuita",
+    href: "/es/free-projection#lead-form",
+  },
+}[lang];
 ---
 
 <section class="bg-primary px-4 py-16 text-center sm:px-6 sm:py-24">
   <div class="mx-auto max-w-2xl">
     <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-      Ready to See Your Property's True Earning Potential?
+      {copy.heading}
     </h2>
     <p class="mt-4 font-light text-white/85">
-      Let's run the numbers. Request a comprehensive, data-driven rental
-      projection for your Puerto Vallarta condo.
+      {copy.subtitle}
     </p>
     <a
-      href="#lead-form"
+      href={copy.href}
       class="mt-8 inline-block rounded-lg bg-accent px-8 py-4 text-base font-medium text-foreground transition hover:opacity-90"
     >
-      Request My Free Projection
+      {copy.button}
     </a>
   </div>
 </section>

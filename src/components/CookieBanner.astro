@@ -1,4 +1,24 @@
 ---
+import type { Lang } from "../lib/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props;
+
+const copy = {
+  en: {
+    text: "We use cookies to analyze traffic and improve your experience. Read our privacy policy to learn more.",
+    reject: "Reject",
+    accept: "Accept",
+  },
+  es: {
+    text: "Usamos cookies para analizar el tráfico y mejorar tu experiencia. Consulta nuestro aviso de privacidad para más información.",
+    reject: "Rechazar",
+    accept: "Aceptar",
+  },
+}[lang];
 ---
 
 <div
@@ -6,24 +26,21 @@
   class="fixed inset-x-0 bottom-0 z-50 hidden border-t border-brand-gray-50 bg-background px-4 py-4 shadow-[0_-4px_16px_rgba(0,0,0,0.08)] sm:px-6"
 >
   <div class="mx-auto flex max-w-6xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-    <p class="text-sm text-muted-foreground">
-      We use cookies to analyze traffic and improve your experience. Read our
-      privacy policy to learn more.
-    </p>
+    <p class="text-sm text-muted-foreground">{copy.text}</p>
     <div class="flex shrink-0 gap-3">
       <button
         id="cookie-reject"
         type="button"
         class="rounded-lg border border-primary px-5 py-2 text-sm font-medium text-primary transition hover:bg-muted"
       >
-        Reject
+        {copy.reject}
       </button>
       <button
         id="cookie-accept"
         type="button"
         class="rounded-lg bg-accent px-5 py-2 text-sm font-medium text-foreground transition hover:opacity-90"
       >
-        Accept
+        {copy.accept}
       </button>
     </div>
   </div>

@@ -2,9 +2,6 @@
 import Layout from "../../layouts/Layout.astro";
 import { SITE, whatsappUrl } from "../../lib/site";
 
-const enUrl = new URL("/emergency-contacts", SITE.url).toString();
-const esUrl = new URL("/es/emergency-contacts", SITE.url).toString();
-
 type Entry = { name: string; note?: string; numbers: string[] };
 type Category = { title: string; entries: Entry[] };
 
@@ -51,12 +48,6 @@ const categories: Category[] = [
   title="Números de Emergencia e Importantes en Puerto Vallarta | Praben"
   description="Números esenciales de emergencia, hospitales, consulados y servicios públicos para propietarios, huéspedes y residentes en Puerto Vallarta."
   lang="es"
-  langSwitch={{ label: "English", href: "/emergency-contacts" }}
-  alternateLinks={[
-    { hreflang: "en", href: enUrl },
-    { hreflang: "es", href: esUrl },
-    { hreflang: "x-default", href: enUrl },
-  ]}
 >
   <main>
     <section class="bg-primary px-4 py-16 text-center sm:px-6 sm:py-20">

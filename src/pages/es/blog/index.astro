@@ -1,0 +1,40 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { SITE } from "../../../lib/site";
+
+// No posts yet — this becomes a real content collection once articles exist.
+---
+
+<Layout
+  title="Artículos | Praben Property Management"
+  description="Información para inversionistas sobre rentas de corto plazo, administración de propiedades y cómo maximizar el retorno en Puerto Vallarta."
+  lang="es"
+>
+  <main>
+    <section class="bg-primary px-4 py-16 text-center sm:px-6 sm:py-24">
+      <div class="mx-auto max-w-2xl">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-accent">
+          Artículos
+        </p>
+        <h1 class="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          Información para Inversionistas en Puerto Vallarta.
+        </h1>
+        <p class="mt-4 font-light text-white/85">
+          Datos de mercado, guías de retorno de inversión y consejos de
+          propiedad para inversionistas de EE. UU. y Canadá — próximamente.
+        </p>
+      </div>
+    </section>
+
+    <section class="px-4 py-20 sm:px-6">
+      <p class="mx-auto max-w-xl text-center font-light text-muted-foreground">
+        Estamos construyendo nuestra biblioteca de recursos para
+        inversionistas. Mientras tanto, contáctanos directamente en{" "}
+        <a href={`mailto:${SITE.email}`} class="font-medium text-primary underline">
+          {SITE.email}
+        </a>
+        {" "}si tienes alguna pregunta.
+      </p>
+    </section>
+  </main>
+</Layout>

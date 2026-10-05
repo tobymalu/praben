@@ -13,6 +13,8 @@ export const SITE = {
     number: "523221941849",
     defaultMessage:
       "Hi, I'd like a free rental income projection for my Puerto Vallarta property.",
+    defaultMessageEs:
+      "Hola, me gustaría una proyección gratuita de ingresos por renta para mi propiedad en Puerto Vallarta.",
   },
   social: {
     instagram: "", // TODO
@@ -21,15 +23,24 @@ export const SITE = {
   },
 } as const;
 
-export function whatsappUrl(message: string = SITE.whatsapp.defaultMessage): string {
-  const encoded = encodeURIComponent(message);
+export function whatsappUrl(message?: string, lang: "en" | "es" = "en"): string {
+  const text =
+    message ?? (lang === "es" ? SITE.whatsapp.defaultMessageEs : SITE.whatsapp.defaultMessage);
+  const encoded = encodeURIComponent(text);
   return `https://wa.me/${SITE.whatsapp.number}?text=${encoded}`;
 }
 
-export const NAV_LINKS = [
-  { label: "Services", href: "/services" },
-  { label: "About Us", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Emergency Contacts", href: "/emergency-contacts" },
-  { label: "Contact", href: "/contact" },
+const NAV_ITEMS = [
+  { en: "Services", es: "Servicios", path: "/services" },
+  { en: "About Us", es: "Nosotros", path: "/about" },
+  { en: "Blog", es: "Blog", path: "/blog" },
+  { en: "Emergency Contacts", es: "Contactos de Emergencia", path: "/emergency-contacts" },
+  { en: "Contact", es: "Contacto", path: "/contact" },
 ] as const;
+
+export function getNavLinks(lang: "en" | "es") {
+  return NAV_ITEMS.map((item) => ({
+    label: lang === "es" ? item.es : item.en,
+    href: lang === "es" ? `/es${item.path}` : item.path,
+  }));
+}
