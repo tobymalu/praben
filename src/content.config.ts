@@ -3,6 +3,9 @@ import { glob } from "astro/loaders";
 
 const blogSchema = z.object({
   title: z.string(),
+  // Only needed when the <title> tag should read differently from the
+  // on-page H1 (e.g. a punchier SEO title vs. a longer editorial headline).
+  seoTitle: z.string().optional(),
   description: z.string(),
   excerpt: z.string(),
   publishDate: z.coerce.date(),

@@ -19,10 +19,11 @@ const dateFormatted = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   timeZone: "UTC",
 }).format(post.data.publishDate);
+const metaTitle = post.data.seoTitle ?? post.data.title;
 ---
 
 <Layout
-  title={`${post.data.title} | Praben Property Management`}
+  title={`${metaTitle} | Praben Property Management`}
   description={post.data.description}
   lang="en"
 >
