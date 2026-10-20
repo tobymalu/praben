@@ -4,11 +4,16 @@ import { toEnglishPath, toSpanishPath, type Lang } from "../lib/i18n";
 
 interface Props {
   lang?: Lang;
+  enPath?: string;
+  esPath?: string;
 }
 
-const { lang = "en" } = Astro.props;
+const { lang = "en", enPath, esPath } = Astro.props;
 const navLinks = getNavLinks(lang);
-const toggleHref = lang === "es" ? toEnglishPath(Astro.url.pathname) : toSpanishPath(Astro.url.pathname);
+const toggleHref =
+  lang === "es"
+    ? (enPath ?? toEnglishPath(Astro.url.pathname))
+    : (esPath ?? toSpanishPath(Astro.url.pathname));
 const toggleLabel = lang === "es" ? "English" : "Español";
 const ctaLabel = lang === "es" ? "Proyección Gratuita" : "Free Projection";
 const ctaHref = lang === "es" ? "/es/free-projection" : "/free-projection";

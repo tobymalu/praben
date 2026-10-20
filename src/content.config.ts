@@ -6,6 +6,14 @@ const blogSchema = z.object({
   // Only needed when the <title> tag should read differently from the
   // on-page H1 (e.g. a punchier SEO title vs. a longer editorial headline).
   seoTitle: z.string().optional(),
+  // The public URL slug, when it should differ from the filename (e.g. a
+  // localized Spanish slug instead of reusing the English one verbatim, so
+  // each language indexes as its own distinct page). Falls back to the
+  // filename (the collection entry's id) when omitted.
+  // Named urlSlug, not slug — Astro's glob loader treats a frontmatter
+  // field literally named `slug` as an id override, which would break the
+  // filename-based EN<->ES pairing below.
+  urlSlug: z.string().optional(),
   description: z.string(),
   excerpt: z.string(),
   publishDate: z.coerce.date(),
@@ -14,9 +22,10 @@ const blogSchema = z.object({
   heroImageAlt: z.string(),
 });
 
-// Paired by identical slug under src/content/blog/en/<slug>.md and
-// src/content/blog/es/<slug>.md — same pairing convention as the
-// /slug <-> /es/slug page routes (see src/lib/i18n.ts).
+// Paired by identical FILENAME under src/content/blog/en/<id>.md and
+// src/content/blog/es/<id>.md — the filename is purely an internal pairing
+// key now; the public URL comes from each entry's `urlSlug` field (or the
+// filename, if `urlSlug` is omitted).
 const blogEn = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog/en" }),
   schema: blogSchema,

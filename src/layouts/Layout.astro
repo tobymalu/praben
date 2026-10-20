@@ -13,12 +13,25 @@ interface Props {
   description: string;
   noindex?: boolean;
   lang?: Lang;
+  // Override the mechanical /path <-> /es/path mirroring — needed wherever
+  // the Spanish URL doesn't share the English slug (e.g. localized blog
+  // post slugs). Pass both as site-relative paths, e.g. "/blog/foo" and
+  // "/es/blog/foo-en-espanol".
+  enPath?: string;
+  esPath?: string;
 }
 
-const { title, description, noindex = false, lang = "en" } = Astro.props;
+const {
+  title,
+  description,
+  noindex = false,
+  lang = "en",
+  enPath,
+  esPath,
+} = Astro.props;
 const canonical = new URL(Astro.url.pathname, SITE.url).toString();
-const enUrl = new URL(toEnglishPath(Astro.url.pathname), SITE.url).toString();
-const esUrl = new URL(toSpanishPath(Astro.url.pathname), SITE.url).toString();
+const enUrl = new URL(enPath ?? toEnglishPath(Astro.url.pathname), SITE.url).toString();
+const esUrl = new URL(esPath ?? toSpanishPath(Astro.url.pathname), SITE.url).toString();
 const ogImage = new URL("/praben-logotipo-03.png", SITE.url).toString();
 const skipLinkLabel = lang === "es" ? "Saltar al contenido" : "Skip to content";
 ---
@@ -69,7 +82,7 @@ const skipLinkLabel = lang === "es" ? "Saltar al contenido" : "Skip to content";
     >
       {skipLinkLabel}
     </a>
-    <HeaderNav lang={lang} />
+    <HeaderNav lang={lang} enPath={enPath} esPath={esPath} />
     <div id="contenido">
       <slot />
     </div>

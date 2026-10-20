@@ -1,5 +1,6 @@
 ---
 title: "Guía de Impuestos del SAT para Propietarios Extranjeros en Puerto Vallarta (Edición 2027)"
+urlSlug: "guia-impuestos-sat-propietarios-extranjeros-puerto-vallarta-2027"
 description: "Una guía 2027 sobre las obligaciones fiscales del SAT, el registro de RFC y las retenciones de plataformas para propietarios de EE. UU. y Canadá que rentan en Puerto Vallarta."
 excerpt: "¿Con RFC o sin RFC? Mira exactamente cuánto retiene el SAT de tus ingresos por renta en Puerto Vallarta — además de deducciones y créditos fiscales que evitan que pagues dos veces."
 publishDate: 2026-10-17

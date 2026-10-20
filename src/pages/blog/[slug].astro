@@ -1,11 +1,11 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blogEn");
   return posts.map((post) => ({
-    params: { slug: post.id },
+    params: { slug: post.data.urlSlug ?? post.id },
     props: { post },
   }));
 }
@@ -20,12 +20,21 @@ const dateFormatted = new Intl.DateTimeFormat("en-US", {
   timeZone: "UTC",
 }).format(post.data.publishDate);
 const metaTitle = post.data.seoTitle ?? post.data.title;
+
+// Cross-link to the Spanish counterpart, paired by filename (post.id) —
+// its public slug can differ (localized Spanish slug), so it's resolved
+// here rather than mirrored mechanically.
+const esPost = await getEntry("blogEs", post.id);
+const enPath = `/blog/${post.data.urlSlug ?? post.id}`;
+const esPath = esPost ? `/es/blog/${esPost.data.urlSlug ?? esPost.id}` : undefined;
 ---
 
 <Layout
   title={`${metaTitle} | Praben Property Management`}
   description={post.data.description}
   lang="en"
+  enPath={enPath}
+  esPath={esPath}
 >
   <main>
     <article>

@@ -1,5 +1,6 @@
 ---
 title: "Los 10 Mejores Departamentos y Condominios Frente al Mar en Puerto Vallarta (Edición 2027)"
+urlSlug: "mejores-condominios-frente-al-mar-puerto-vallarta-2027"
 description: "Los 10 condominios frente al mar más destacados de Puerto Vallarta para 2027: ubicación, amenidades y para quién es ideal cada uno."
 excerpt: "De la Zona Romántica a Marina Vallarta: así filtramos los 10 condominios en primera línea de playa que más valen la pena este 2027."
 publishDate: 2026-10-05
