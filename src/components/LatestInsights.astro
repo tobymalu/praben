@@ -1,0 +1,74 @@
+---
+import { getCollection } from "astro:content";
+import type { Lang } from "../lib/i18n";
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props;
+
+const posts = (await getCollection(lang === "es" ? "blogEs" : "blogEn"))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
+
+const copy = {
+  en: {
+    eyebrow: "From the Blog",
+    heading: "Latest Insights for Puerto Vallarta Investors",
+    viewAll: "View All Articles",
+    blogHref: "/blog",
+    postHref: (post: (typeof posts)[number]) => `/blog/${post.data.urlSlug ?? post.id}`,
+  },
+  es: {
+    eyebrow: "Del Blog",
+    heading: "Últimos Artículos para Inversionistas en Puerto Vallarta",
+    viewAll: "Ver Todos los Artículos",
+    blogHref: "/es/blog",
+    postHref: (post: (typeof posts)[number]) => `/es/blog/${post.data.urlSlug ?? post.id}`,
+  },
+}[lang];
+---
+
+{posts.length > 0 && (
+  <section class="bg-muted px-4 py-16 sm:px-6 sm:py-24">
+    <div class="mx-auto max-w-6xl">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-secondary">
+          {copy.eyebrow}
+        </p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          {copy.heading}
+        </h2>
+      </div>
+
+      <div class="mt-12 grid gap-8 md:grid-cols-3">
+        {posts.map((post) => (
+          <a
+            href={copy.postHref(post)}
+            class="block overflow-hidden rounded-2xl bg-white shadow-sm transition hover:shadow-md"
+          >
+            <img
+              src={post.data.heroImage}
+              alt={post.data.heroImageAlt}
+              class="h-48 w-full object-cover"
+            />
+            <div class="p-6">
+              <h3 class="font-semibold text-foreground">{post.data.title}</h3>
+              <p class="mt-2 font-light text-muted-foreground">{post.data.excerpt}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="mt-10 text-center">
+        <a
+          href={copy.blogHref}
+          class="inline-block rounded-lg border border-primary px-6 py-2.5 text-sm font-medium text-primary transition hover:bg-primary hover:text-white"
+        >
+          {copy.viewAll}
+        </a>
+      </div>
+    </div>
+  </section>
+)}
