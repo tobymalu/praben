@@ -10,8 +10,13 @@ const schema = {
   name: SITE.name,
   image: new URL("/praben-logotipo-03.png", SITE.url).toString(),
   url: `${SITE.url}/`,
-  telephone: SITE.phone.e164,
+  // "+521..." per the SEO audit's explicit spec — note this differs from
+  // SITE.phone.e164 ("+52...", no "1"), used for the site's own tel: links.
+  // Mexican WhatsApp/schema tooling often still expects the legacy "1"
+  // mobile prefix even though it's no longer required for direct dialing.
+  telephone: "+5213221941849",
   email: SITE.email,
+  priceRange: "$$$",
   address: {
     "@type": "PostalAddress",
     addressLocality: "Puerto Vallarta",
@@ -24,6 +29,7 @@ const schema = {
     "Zona Romántica",
     "Nuevo Vallarta",
     "Conchas Chinas",
+    "Amapas",
   ],
   ...(sameAs.length > 0 ? { sameAs } : {}),
 };

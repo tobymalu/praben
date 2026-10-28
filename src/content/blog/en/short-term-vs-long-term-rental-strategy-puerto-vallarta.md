@@ -1,6 +1,6 @@
 ---
 title: "Short-Term vs. Long-Term Rentals in Puerto Vallarta: Which Strategy Yields the Highest ROI in 2027?"
-seoTitle: "Short-Term vs Long-Term Rentals in Puerto Vallarta: 2027 ROI Guide"
+seoTitle: "Short-Term vs Long-Term Rentals in Vallarta | Praben"
 description: "Discover whether short-term or long-term rental strategies yield higher ROI in Puerto Vallarta. A data-driven guide for US and Canadian real estate investors."
 excerpt: "STR or LTR? We break down occupancy, fees, and net ROI by Puerto Vallarta micro-location so you can choose a rental strategy with data, not guesswork."
 publishDate: 2026-10-14

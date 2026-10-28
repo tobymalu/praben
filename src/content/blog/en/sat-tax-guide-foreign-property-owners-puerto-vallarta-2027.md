@@ -1,5 +1,6 @@
 ---
 title: "SAT & Tax Guide for Foreign Property Owners in Puerto Vallarta (2027 Edition)"
+seoTitle: "SAT Tax Guide for Vallarta Foreign Owners | Praben"
 description: "A 2027 guide to Mexican SAT tax obligations, RFC registration, and platform withholdings for US and Canadian owners renting property in Puerto Vallarta."
 excerpt: "RFC or no RFC? See exactly how much SAT withholds from your Puerto Vallarta rental income — plus deductions and treaty credits that keep you from paying twice."
 publishDate: 2026-10-17

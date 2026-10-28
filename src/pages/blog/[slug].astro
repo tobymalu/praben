@@ -19,7 +19,10 @@ const dateFormatted = new Intl.DateTimeFormat("en-US", {
   day: "numeric",
   timeZone: "UTC",
 }).format(post.data.publishDate);
-const metaTitle = post.data.seoTitle ?? post.data.title;
+// seoTitle, when set, is already a complete <= 60-char <title> (e.g. "...
+// | Praben") — don't suffix it again. Only the title fallback needs the
+// brand suffix appended.
+const metaTitle = post.data.seoTitle ?? `${post.data.title} | Praben Property Management`;
 
 // Cross-link to the Spanish counterpart, paired by filename (post.id) —
 // its public slug can differ (localized Spanish slug), so it's resolved
@@ -30,7 +33,7 @@ const esPath = esPost ? `/es/blog/${esPost.data.urlSlug ?? esPost.id}/` : undefi
 ---
 
 <Layout
-  title={`${metaTitle} | Praben Property Management`}
+  title={metaTitle}
   description={post.data.description}
   lang="en"
   enPath={enPath}
