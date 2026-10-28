@@ -79,4 +79,4 @@ En Praben Property Management, eliminamos esa fricción por completo. Nuestro si
 
 Deja de adivinar tus retornos o conformarte con comisiones ocultas de agencia. Deja que nuestro equipo ejecutivo haga un análisis de ingresos personalizado y basado en datos para tu condominio en Puerto Vallarta.
 
-👉 [Solicita tu Proyección de Renta Gratuita Hoy](/es/free-projection#lead-form)
+👉 [Solicita tu Proyección de Renta Gratuita Hoy](/es/free-projection/#lead-form)

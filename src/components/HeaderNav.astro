@@ -16,12 +16,12 @@ const toggleHref =
     : (esPath ?? toSpanishPath(Astro.url.pathname));
 const toggleLabel = lang === "es" ? "English" : "Español";
 const ctaLabel = lang === "es" ? "Proyección Gratuita" : "Free Projection";
-const ctaHref = lang === "es" ? "/es/free-projection" : "/free-projection";
+const ctaHref = lang === "es" ? "/es/free-projection/" : "/free-projection/";
 ---
 
 <header class="sticky top-0 z-40 border-b border-brand-gray-50 bg-background/95 backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
-    <a href={lang === "es" ? "/es" : "/"} class="shrink-0">
+    <a href={lang === "es" ? "/es/" : "/"} class="shrink-0">
       <img src="/praben-logotipo-03.png" alt={SITE.name} class="h-8 w-auto sm:h-9" />
     </a>
 

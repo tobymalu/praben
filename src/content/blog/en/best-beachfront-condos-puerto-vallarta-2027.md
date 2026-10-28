@@ -150,4 +150,4 @@ Following the criteria most valued by travelers and investors on platforms like 
 
 At Praben Property Management, we make sure your beachfront investment stays impeccable and generates rental income transparently, without the headaches.
 
-👉 [Request Your Free Rental Projection With Praben](/free-projection#lead-form)
+👉 [Request Your Free Rental Projection With Praben](/free-projection/#lead-form)

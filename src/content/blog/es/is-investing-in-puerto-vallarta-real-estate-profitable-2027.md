@@ -70,4 +70,4 @@ En Praben Property Management, protegemos el rendimiento de tu inversión con nu
 
 Deja que nuestro equipo genere una proyección financiera personalizada y basada en datos para tu condominio o villa.
 
-👉 [Solicita tu Proyección de Renta Gratuita Hoy](/es/free-projection#lead-form)
+👉 [Solicita tu Proyección de Renta Gratuita Hoy](/es/free-projection/#lead-form)

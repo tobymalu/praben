@@ -4,6 +4,7 @@ import GoogleTagManagerNoscript from "../components/GoogleTagManagerNoscript.ast
 import CookieBanner from "../components/CookieBanner.astro";
 import HeaderNav from "../components/HeaderNav.astro";
 import Footer from "../components/Footer.astro";
+import SchemaLocalBusiness from "../components/SchemaLocalBusiness.astro";
 import "../styles/global.css";
 import { SITE } from "../lib/site";
 import { toEnglishPath, toSpanishPath, type Lang } from "../lib/i18n";
@@ -42,6 +43,7 @@ const skipLinkLabel = lang === "es" ? "Saltar al contenido" : "Skip to content";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <GoogleTagManager />
+    <SchemaLocalBusiness />
 
     <title>{title}</title>
     <meta name="description" content={description} />

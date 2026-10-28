@@ -17,15 +17,15 @@ const copy = {
     eyebrow: "From the Blog",
     heading: "Latest Insights for Puerto Vallarta Investors",
     viewAll: "View All Articles",
-    blogHref: "/blog",
-    postHref: (post: (typeof posts)[number]) => `/blog/${post.data.urlSlug ?? post.id}`,
+    blogHref: "/blog/",
+    postHref: (post: (typeof posts)[number]) => `/blog/${post.data.urlSlug ?? post.id}/`,
   },
   es: {
     eyebrow: "Del Blog",
     heading: "Últimos Artículos para Inversionistas en Puerto Vallarta",
     viewAll: "Ver Todos los Artículos",
-    blogHref: "/es/blog",
-    postHref: (post: (typeof posts)[number]) => `/es/blog/${post.data.urlSlug ?? post.id}`,
+    blogHref: "/es/blog/",
+    postHref: (post: (typeof posts)[number]) => `/es/blog/${post.data.urlSlug ?? post.id}/`,
   },
 }[lang];
 ---

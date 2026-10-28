@@ -69,4 +69,4 @@ Our all-in-one management system handles everything on the ground in Puerto Vall
 
 Operating a Mexican property remotely doesn't have to be stressful. Let our team prepare a customized financial and operational plan for your Vallarta condo.
 
-👉 [Request Your Free Rental Projection Today](/free-projection#lead-form)
+👉 [Request Your Free Rental Projection Today](/free-projection/#lead-form)

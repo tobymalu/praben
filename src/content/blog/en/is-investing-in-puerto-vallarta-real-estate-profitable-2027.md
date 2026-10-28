@@ -69,4 +69,4 @@ At Praben Property Management, we protect your investment's bottom line with our
 
 Let our team generate a customized, data-backed financial projection tailored to your specific condominium or villa.
 
-👉 [Request Your Free Rental Projection Today](/free-projection#lead-form)
+👉 [Request Your Free Rental Projection Today](/free-projection/#lead-form)

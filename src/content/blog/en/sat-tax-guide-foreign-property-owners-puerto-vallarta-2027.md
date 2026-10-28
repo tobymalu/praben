@@ -66,4 +66,4 @@ At Praben Property Management, our all-in-one management model integrates transp
 
 Stop letting tax confusion erode your investment yield. Let our team deliver a clear, data-driven financial breakdown for your Puerto Vallarta condo.
 
-👉 [Request Your Free Rental Projection Today](/free-projection#lead-form)
+👉 [Request Your Free Rental Projection Today](/free-projection/#lead-form)

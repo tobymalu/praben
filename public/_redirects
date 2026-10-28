@@ -1,0 +1,11 @@
+# Legacy WordPress URLs -> current Astro site (301 permanent redirects)
+# Cloudflare Pages _redirects format: source destination status
+/contacto/   /es/contact/   301
+/contacto    /es/contact/   301
+/inicio/     /es/           301
+/inicio      /es/           301
+/nosotros/   /es/about/     301
+/nosotros    /es/about/     301
+/propiedades/ /es/services/ 301
+/propiedades /es/services/  301
+/wp-content/* /             301

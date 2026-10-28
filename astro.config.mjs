@@ -8,6 +8,7 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://praben.com',
   output: 'static',
+  trailingSlash: 'always',
 
   i18n: {
     defaultLocale: 'en',

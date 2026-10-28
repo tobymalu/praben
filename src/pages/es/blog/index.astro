@@ -34,7 +34,7 @@ const posts = (await getCollection("blogEs")).sort(
         <div class="mx-auto grid max-w-6xl gap-8 md:grid-cols-3">
           {posts.map((post) => (
             <a
-              href={`/es/blog/${post.data.urlSlug ?? post.id}`}
+              href={`/es/blog/${post.data.urlSlug ?? post.id}/`}
               class="block overflow-hidden rounded-2xl bg-muted shadow-sm transition hover:shadow-md"
             >
               <img

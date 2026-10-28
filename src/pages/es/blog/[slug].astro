@@ -23,8 +23,8 @@ const metaTitle = post.data.seoTitle ?? post.data.title;
 
 // Cross-link to the English counterpart, paired by filename (post.id).
 const enPost = await getEntry("blogEn", post.id);
-const esPath = `/es/blog/${post.data.urlSlug ?? post.id}`;
-const enPath = enPost ? `/blog/${enPost.data.urlSlug ?? enPost.id}` : undefined;
+const esPath = `/es/blog/${post.data.urlSlug ?? post.id}/`;
+const enPath = enPost ? `/blog/${enPost.data.urlSlug ?? enPost.id}/` : undefined;
 ---
 
 <Layout

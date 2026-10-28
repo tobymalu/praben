@@ -31,11 +31,11 @@ export function whatsappUrl(message?: string, lang: "en" | "es" = "en"): string 
 }
 
 const NAV_ITEMS = [
-  { en: "Services", es: "Servicios", path: "/services" },
-  { en: "About Us", es: "Nosotros", path: "/about" },
-  { en: "Blog", es: "Blog", path: "/blog" },
-  { en: "Emergency Contacts", es: "Contactos de Emergencia", path: "/emergency-contacts" },
-  { en: "Contact", es: "Contacto", path: "/contact" },
+  { en: "Services", es: "Servicios", path: "/services/" },
+  { en: "About Us", es: "Nosotros", path: "/about/" },
+  { en: "Blog", es: "Blog", path: "/blog/" },
+  { en: "Emergency Contacts", es: "Contactos de Emergencia", path: "/emergency-contacts/" },
+  { en: "Contact", es: "Contacto", path: "/contact/" },
 ] as const;
 
 export function getNavLinks(lang: "en" | "es") {

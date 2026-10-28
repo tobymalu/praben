@@ -70,4 +70,4 @@ Nuestro sistema de administración todo en uno se encarga de todo en terreno en 
 
 Operar una propiedad mexicana a distancia no tiene que ser estresante. Deja que nuestro equipo prepare un plan financiero y operativo personalizado para tu condominio en Vallarta.
 
-👉 [Solicita tu Proyección de Renta Gratuita Hoy](/es/free-projection#lead-form)
+👉 [Solicita tu Proyección de Renta Gratuita Hoy](/es/free-projection/#lead-form)

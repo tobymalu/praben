@@ -25,8 +25,8 @@ const metaTitle = post.data.seoTitle ?? post.data.title;
 // its public slug can differ (localized Spanish slug), so it's resolved
 // here rather than mirrored mechanically.
 const esPost = await getEntry("blogEs", post.id);
-const enPath = `/blog/${post.data.urlSlug ?? post.id}`;
-const esPath = esPost ? `/es/blog/${esPost.data.urlSlug ?? esPost.id}` : undefined;
+const enPath = `/blog/${post.data.urlSlug ?? post.id}/`;
+const esPath = esPost ? `/es/blog/${esPost.data.urlSlug ?? esPost.id}/` : undefined;
 ---
 
 <Layout

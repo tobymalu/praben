@@ -78,4 +78,4 @@ At Praben Property Management, we eliminate that friction entirely. Our all-in-o
 
 Stop guessing your returns or settling for hidden agency fees. Let our executive team run a customized, data-driven revenue analysis for your Puerto Vallarta condo.
 
-👉 [Request Your Free Rental Projection Today](/free-projection#lead-form)
+👉 [Request Your Free Rental Projection Today](/free-projection/#lead-form)

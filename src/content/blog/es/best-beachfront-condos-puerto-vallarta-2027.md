@@ -151,4 +151,4 @@ Siguiendo los criterios mejor evaluados por viajeros e inversionistas en platafo
 
 En Praben Property Management nos encargamos de que tu inversión frente al mar se mantenga impecable y genere ingresos de renta de forma transparente y sin dolores de cabeza.
 
-👉 [Solicita aquí tu Proyección de Renta Gratuita con Praben](/es/free-projection#lead-form)
+👉 [Solicita aquí tu Proyección de Renta Gratuita con Praben](/es/free-projection/#lead-form)

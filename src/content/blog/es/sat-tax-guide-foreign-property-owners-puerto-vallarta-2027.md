@@ -67,4 +67,4 @@ En Praben Property Management, nuestro modelo de administración todo en uno int
 
 Deja de permitir que la confusión fiscal erosione el rendimiento de tu inversión. Deja que nuestro equipo te entregue un desglose financiero claro y basado en datos para tu condominio en Puerto Vallarta.
 
-👉 [Solicita tu Proyección de Renta Gratuita Hoy](/es/free-projection#lead-form)
+👉 [Solicita tu Proyección de Renta Gratuita Hoy](/es/free-projection/#lead-form)
